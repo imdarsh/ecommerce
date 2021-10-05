@@ -1,0 +1,161 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+    <link href="{% static 'fontawesome/css/all.css' %}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{% static 'custom/style.css' %}">
+    <title>Home Page</title>
+</head>
+<body>
+      <!-- Header -->
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+          <div class="h1 text-white">Ecommerce</div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse " id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active h5" aria-current="page" href="/">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active h5" aria-current="page" href="/contact/">Contact</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="{% static 'images/banner1.png' %}" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="{% static 'images/banner2.png' %}" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="{% static 'images/banner3.png' %}" class="d-block w-100" alt="...">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </header>
+
+      <!-- Shopping Card -->
+     <section class="shopping-cart">
+      <h2 class="text-center latest-products">EXCLUSIVE DEALS</h2>
+      <div class="container">
+        <div class="row">
+          {% for product in products %}
+          <div class="col-md-3">
+            <div class="card">
+              <img src="{{ product.image.url }}" alt="Avatar">
+              <div class="card-body">
+                <h4 class="text-center"><b>{{ product.title }}</b></h4> 
+                <p class="text-center">Rs. {{ product.price }}/-</p> 
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+     </section>
+
+      <!-- Background Parallax Effect -->
+      <div class="wrap">
+        <div class="ratio">
+          <div class="headerimg2"></div>
+          <div class="headerimg"></div>
+        </div>
+        <h1 class="text-center latest-products">SHOP BY CATEGORY</h1>
+        <div class="container">
+          <div class="row">  
+            <div class="col-md-3">
+              <div class="card cat">
+                <img src="{% static 'images/shoes.webp' %}" alt="Avatar">
+                <div class=""> 
+                  <h3 class="text-center">Shoes</h3> 
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="card cat">
+                <img src="{% static 'images/watch.webp' %}" alt="Avatar">
+                <div class=""> 
+                  <h3 class="text-center">Watch</h3> 
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="card cat">
+                <img src="{% static 'images/shirts.webp' %}" alt="Avatar">
+                <div class=""> 
+                  <h3 class="text-center">T-Shirts</h3> 
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="card cat">
+                <img src="{% static 'images/bags.webp' %}" alt="Avatar">
+                <div class=""> 
+                  <h3 class="text-center">Bags</h3> 
+                </div>
+              </div>
+            </div>  
+          </div>
+        </div>
+      </div>
+           
+      <!-- Footer -->
+      <div class="footer">
+        <div class="backtotop">
+          <button id="scrollToTopBtn"><i class="fa fa-arrow-up"></i></button>
+        </div>
+        <hr>
+        <p class="text-center footer-text">@Copyright 2021 - Made For Assignment Purpose</p>
+      </div> 
+      
+      <script src="{% static 'js/bootstrap.min.js' %}"></script>
+      <script>
+        // Responsive Show menu
+        var navLinks = document.getElementById("navLinks");
+        function showMenu(){
+            navLinks.style.right = "0";
+        }
+        function hideMenu(){
+            navLinks.style.right = "-200px";
+        }
+
+        // Back to Top Button
+        var scrollToTopBtn = document.getElementById("scrollToTopBtn");
+        var rootElement = document.documentElement;
+
+        function scrollToTop() {
+          // Scroll to top logic
+          rootElement.scrollTo({
+            top: 0,
+            behavior: "smooth"
+          });
+        }
+        scrollToTopBtn.addEventListener("click", scrollToTop);
+    </script>
+</body>
+</html>

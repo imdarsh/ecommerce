@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+    <link href="{% static 'fontawesome/css/all.css' %}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{% static 'custom/contact.css' %}">
+    <title>Contact Page</title>
+</head>
+<body>  
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+          <div class="h1 text-white">Ecommerce</div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse " id="navbarSupportedContent">
+            
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active h5" aria-current="page" href="/">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active h5" aria-current="page" href="/contact/">Contact</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <section>
+        <div class="glass-panel">
+            <h1>Contact Form</h1>
+            <div class="form-group">
+              <input type="text" class="form-input" placeholder="Name">
+            </div>
+            <div class="form-group">
+                <input type="email" class="form-input" placeholder="Email">
+              </div>
+            <div class="form-group">
+              <textarea type="text" rows=8 class="form-input" placeholder="Message"></textarea>
+            </div>
+            <div class="form-group">
+              <button class="glass-button">Submit</button>
+            </div>
+          </div>
+    </section>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script>
+        // Responsive Show menu
+        var navLinks = document.getElementById("navLinks");
+        function showMenu(){
+            navLinks.style.right = "0";
+        }
+        function hideMenu(){
+            navLinks.style.right = "-200px";
+        }
+    </script>
+</body>
+</html>
